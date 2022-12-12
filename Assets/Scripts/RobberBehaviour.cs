@@ -21,11 +21,6 @@ public class RobberBehaviour : MonoBehaviour
         steal.AddChild(GoToDiamond);//krecemo od zadnje akcije s ljeve strane drveta i krecemo se u desno po istoj ravnini
         steal.AddChild(GoToVan);
         tree.AddChild(steal);//nakraju u sami tree dodajemo Steal Node
-
-        RunAway.AddChild(FindExit);
-        RunAway.AddChild(GoToExit);
-        tree.AddChild(RunAway);
-
         tree.PrintTree();
     }
 }
