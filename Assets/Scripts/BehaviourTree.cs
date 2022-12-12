@@ -18,12 +18,14 @@ public class BehaviourTree : Node
     struct NodeLevel
     {
         public int level;
+        public Node node;
     }
 
+
+    /* PRINT BEHAVIOUR TREE U KONZOLU KORISTECI SE LISTOM I FOR PETLJOM
     public void PrintTree()
     {
         string TreePrintout = "";
-        NodeLevel NextNode = new NodeLevel { level = 0 };
         for (int y = 0; y < children.Count; y++)
         {
             TreePrintout += "-" + children[y].name + "\n";
@@ -33,5 +35,11 @@ public class BehaviourTree : Node
             }
         }
         Debug.Log(TreePrintout);
+    }
+    */
+
+    public void PrintTree()
+    {
+        string treePrintOut = "";
     }
 }
