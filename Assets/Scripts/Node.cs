@@ -9,6 +9,7 @@ public class Node //koristeći se ovom klasom, kreirat cemo naše Nodove koji ce
     };
     public Status status;
 
+
     public List<Node> children = new List<Node>();
     public int currentChild = 0; //na samom pocetku pocet ce od prvog child objeta s ljeve strane i kretat ce se prema desno 
     public string name;
@@ -17,6 +18,11 @@ public class Node //koristeći se ovom klasom, kreirat cemo naše Nodove koji ce
     public Node(string n) //svaki Node koji napravimo u drugoj skripti dodat cemo joj atribut string odnosno naziv naše akcije 
     {
         name = n;
+    }
+
+    public virtual Status Process()
+    {
+        return children[currentChild].Process();
     }
 
     public void AddChild(Node n)

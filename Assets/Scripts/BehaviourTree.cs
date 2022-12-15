@@ -14,6 +14,10 @@ public class BehaviourTree : Node
         name = m;
     }
 
+    public override Status Process()
+    {
+        return children[currentChild].Process();//ovime pokrecemo process od current child
+    }
 
     struct NodeLevel //koristit cemo struct kako bi mogli odrediti level svakog node-a, npr. root node je lvl 0, sequence node lvl 2, leaf node lvl 3 itd
     {
@@ -41,9 +45,9 @@ public class BehaviourTree : Node
     public void PrintTree()
     {
         string treePrintOut = "";
-        Stack<NodeLevel> nodeStack = new Stack<NodeLevel>();//radio kao array, Stack radio kao LIFO - koristimo ga kada želimo doci do informacija obrnutim redosljedom od kojeg ga punimo
+        Stack<NodeLevel> nodeStack = new Stack<NodeLevel>();//radio kao array, Stack radio kao LIFO 
         Node currentNode = this; //prvi node je ustvari nas Behaviour Tree
-        nodeStack.Push(new NodeLevel {level = 0, node = currentNode });//dodamo taj currentNode u naš stack zajedno sa njegovim levelom, radimo to preko stuck
+        nodeStack.Push(new NodeLevel {level = 0, node = currentNode });//dodamo taj currentNode u naš stack zajedno sa njegovim levelom, radimo to preko stuct
 
         while (nodeStack.Count != 0)
         {
